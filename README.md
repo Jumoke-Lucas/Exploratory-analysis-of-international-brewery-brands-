@@ -31,7 +31,7 @@ This dataset (*International_Breweries.csv*) contains the data about internation
 
 ### Analysis Using SQL Queries (*file: sql analysis.sql*).
 
-
+First, I created a database and a table where i imported the csv file containing the datasets
 ```
 Create database Breweries;
 
@@ -51,90 +51,46 @@ Months varchar(255),
 Years int,
 Primary key (Sales_id)
 );
+```
+I calculated the profit worth of the breweries inclusive of the anglophone and the francophone territories between 2017 and 2019
 
-select * from international_breweries;
-
+```
 select sum(Profit) from International_breweries;
+
+```
+I also calculated and compared the total profit between these two territories 
+```
  
  select sum(profit) AS Anglophone_profit from International_breweries
  where countries IN ('Nigeria','Ghana');
  
  select sum(profit) as Francophone_profit from International_breweries
  where countries in ('Togo','Benin','Senegal');
-
-select countries, max(profit) as highest_profit_generated
-from International_breweries where years =2019
-group by countries
-order by max(profit) DESC
-limit 1;
-
- select years, max(profit) as highest_profit
-from International_breweries 
-group by years
-order by max(profit) DESC
-limit 1;
-
-select months, min(profit) as least_profit
-from International_breweries
-group by months
-order by min(profit)DESC
-limit 1;
-
-select min(profit) from International_breweries
-where Months = 'December' and Years = '2018';
-
-select months, Round(sum(profit) * 0.01) as Profit_Percentage
-from International_breweries
-where years = 2019
-group by months
-order by percentage;
-
-select Brands, max(profit)as highest_profit
-from International_breweries where Countries = 'Senegal'
-group by brands
-order by max(profit)desc
-limit 1;
-
---Section B: Brand Analysis
-/*1.Within the last two years, the brand manager wants to know the top three brands
-consumed in the francophone countries*/ 
-select brands, sum(Quantity)
-from International_breweries 
-where years in (2019, 2018)and countries in ('Togo','Benin','Senegal')
-group by brands
-order by sum(Quantity) DESC
-limit 3;
-
-select brands, sum(Quantity)
-from International_breweries 
-where countries = 'Ghana'
-group by brands
-order by sum(Quantity) DESC
-limit 2;
-
+```
+Details of beers consumed in the past three years in Nigeria
+```
 select brands, sum(quantity) as quantity, sum(profit) as profit
 from International_breweries where years in (2017, 2018,2019) and 
 countries = 'Nigeria'
 group by brands;
 
+```
+Favorites malt brand in Anglophone region between 2018 and 2019
+```
 select brands, sum(quantity) 
 from International_breweries where years in (2018,2019)
 and countries in ('Ghana','Nigeria') and 
 brands in ('Beta Malt','Grand Malt')
 group by brands;
-
-select brands, sum(quantity) as quantity_sold
-from International_breweries
-where years = 2019 and countries = 'Nigeria'
-group by brands
-order by sum(quantity) desc;
-
+```
+It is often said that south-south region of Nigeria consumes the most alcohol, so i wrote a query to see what brands they consume and how much of it they consume.
+```
 select brands, sum(quantity) as quantity_sold
 from International_breweries
 where region = 'Southsouth' and countries = 'Nigeria'
 group by brands
 order by sum(quantity)desc;
-
+```
 select brands, sum(quantity) as Total_beer_consumed
 from International_breweries
 where countries = 'Nigeria' and 
