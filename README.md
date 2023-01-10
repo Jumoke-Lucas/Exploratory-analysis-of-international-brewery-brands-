@@ -18,4 +18,4 @@ SELECT * from analysis
 ```
 
 
-![image](https://images.app.goo.gl/idPMtnw65P74QWcf9)
+![image](https://github.com/Jumoke-Lucas/Exploratory-analysis-of-brewery-brands-/blob/main/download.jpg)
