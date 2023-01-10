@@ -3,7 +3,8 @@ Exploratory analysis of brewery brands in Anglophones and Francophone countries 
 
 ### DATASET
 
-This dataset contains the data 
+This dataset (*International_Breweries.csv*) contains the data of 5 countries' brewery 
+
 
 the columns are 
 1. sales rep
