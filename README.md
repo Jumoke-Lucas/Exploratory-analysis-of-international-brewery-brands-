@@ -91,43 +91,22 @@ where region = 'Southsouth' and countries = 'Nigeria'
 group by brands
 order by sum(quantity)desc;
 ```
-select brands, sum(quantity) as Total_beer_consumed
-from International_breweries
-where countries = 'Nigeria' and 
-brands in ('Eagle Lager', 'Trophy', 'Hero', 'Budweiser', 'Castle Lite')
-group by brands
-order by sum(quantity)desc;
+I wrote a query to see how much beer was consumed in total by the countries 
 
-select brands, sum(quantity)as Budweiser_consumption
-from International_breweries
-where countries = 'Nigeria' and brands = 'Budweiser'
-group by brands
-order by sum(quantity);
-
-select region, sum(quantity)
-from International_breweries
-where countries = 'Nigeria' and years = 2019 and brands = 'Budweiser'
-group by region;
-
+```
 Select countries,sum(quantity)as amount_consumed
 from International_breweries
 where brands in ('Eagle Lager', 'Trophy', 'Hero', 'Budweiser', 'Castle Lite')
 group by countries
 order by sum(quantity);
-
-select Sales_rep, sum(quantity) 
-from International_breweries
-where brands = 'Budweiser' and countries = 'Senegal'
-group by Sales_rep
-order by sum(quantity)DESC
-limit 1;
-
+```
+And also what countries generated the most profit
+```
 select countries, sum(profit) as highest_profit
 from International_breweries
 where years = 2019 and months in ('October','November','December')
 group by countries
-order by sum(profit) desc
-limit 1;
+order by sum(profit) desc;
 
 ```
 
