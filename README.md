@@ -1,4 +1,4 @@
-# Exploratory-analysis-of-international-brewery-brands
+# Exploratory Analysis Of International Brewery Brands
 Exploratory analysis of international brewery brands in Anglophones and Francophone countries in Africa between 2017 and 2019 using SQL.
 
 
@@ -111,4 +111,4 @@ group by countries
 order by sum(profit) desc;
 
 ```
-The other queries I wrote can be found in this [Sql file] (https://github.com/Jumoke-Lucas/Exploratory-analysis-of-international-brewery-brands-/blob/main/sql%20analysis.sql)
+The other queries I wrote can be found [here](https://github.com/Jumoke-Lucas/Exploratory-analysis-of-international-brewery-brands-/blob/main/sql%20analysis.sql)
