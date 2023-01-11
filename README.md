@@ -111,4 +111,4 @@ group by countries
 order by sum(profit) desc;
 
 ```
-
+The other queries I wrote can be found in this [Sql file] (https://github.com/Jumoke-Lucas/Exploratory-analysis-of-international-brewery-brands-/blob/main/sql%20analysis.sql)
